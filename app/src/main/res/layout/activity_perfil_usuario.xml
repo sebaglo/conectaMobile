@@ -18,9 +18,9 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:scaleType="centerCrop"
-            android:src=""
+
             android:layout_marginTop="16dp"
-            android:background="" />
+             />
 
         <!-- Botón para cambiar foto -->
         <Button
@@ -42,7 +42,7 @@
             android:inputType="textPersonName"
             android:padding="12dp"
             android:layout_marginTop="16dp"
-            android:background="" />
+             />
 
         <!-- Campo de Correo Electrónico -->
         <EditText
@@ -54,7 +54,7 @@
             android:inputType="textEmailAddress"
             android:padding="12dp"
             android:layout_marginTop="8dp"
-            android:background="" />
+             />
 
 
         <!-- Botón Guardar -->
