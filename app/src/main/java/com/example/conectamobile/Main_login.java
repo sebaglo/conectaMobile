@@ -8,6 +8,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Main_login extends AppCompatActivity {
@@ -15,11 +20,15 @@ public class Main_login extends AppCompatActivity {
     private EditText etLoginEmail, etLoginContraseña;
     private Button btnLogin;
     private TextView tvGoToRegister;
+    private FirebaseFirestore mfirestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        FirebaseApp.initializeApp(this);
+        mfirestore = FirebaseFirestore.getInstance();
 
         // Vincular vistas del XML con el código
         etLoginEmail = findViewById(R.id.etLoginEmail);
@@ -38,11 +47,12 @@ public class Main_login extends AppCompatActivity {
                     Toast.makeText(Main_login.this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
                 } else {
                     // Lógica para autenticar al usuario
+
                     // Esto puede conectarse a una base de datos o API
                     Toast.makeText(Main_login.this, "Iniciando sesión con: " + email, Toast.LENGTH_SHORT).show();
 
                     // Redirigir al usuario a otra actividad después de un inicio de sesión exitoso
-                    Intent intent = new Intent(Main_login.this,MainContactos .class);
+                    Intent intent = new Intent(Main_login.this, MainContactos.class);
                     startActivity(intent);
                 }
             }
@@ -59,3 +69,5 @@ public class Main_login extends AppCompatActivity {
         });
     }
 }
+
+
