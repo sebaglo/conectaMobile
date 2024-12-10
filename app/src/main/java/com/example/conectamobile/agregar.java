@@ -1,5 +1,6 @@
 package com.example.conectamobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -69,10 +70,13 @@ public class agregar extends AppCompatActivity {
                 .add(contacto)
                 .addOnSuccessListener(documentReference -> {
                     Toast.makeText(this, "Contacto guardado con éxito.", Toast.LENGTH_SHORT).show();
-                    // Limpiar los campos
-                    etNombreContactoG.setText("");
-                    etCorreoContacto.setText("");
-                    etTelefonoContacto.setText("");
+                    // Regresar a la actividad principal con los datos del nuevo contacto
+                    Intent intent = new Intent();
+                    intent.putExtra("nombre", nombre);
+                    intent.putExtra("correo", correo);
+                    intent.putExtra("telefono", telefono);
+                    setResult(RESULT_OK, intent);
+                    finish(); // Cerrar esta actividad
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Error al guardar el contacto.", Toast.LENGTH_SHORT).show();

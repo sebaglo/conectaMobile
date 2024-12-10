@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Conectamobile"
         tools:targetApi="31">
+        <activity android:name=".MainEditar"/>
         <activity android:name=".agregar"/>
         <activity android:name=".MainContactos"/>
         <activity

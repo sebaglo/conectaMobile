@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/txtTituloEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Contacto"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo para nombre del contacto -->
+    <EditText
+        android:id="@+id/etNombreContactoEditar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del contacto"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@id/txtTituloEditar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="12dp" />
+
+    <!-- Campo para correo del contacto -->
+    <EditText
+        android:id="@+id/etCorreoContactoEditar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Correo del contacto"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/etNombreContactoEditar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"
+        android:padding="12dp" />
+
+    <!-- Campo para teléfono del contacto -->
+    <EditText
+        android:id="@+id/etTelefonoContactoEditar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Teléfono del contacto"
+        android:inputType="phone"
+        app:layout_constraintTop_toBottomOf="@id/etCorreoContactoEditar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"
+        android:padding="12dp" />
+
+    <!-- Botón Guardar Cambios -->
+    <Button
+        android:id="@+id/btnGuardarCambios"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar Cambios"
+        android:backgroundTint="@color/black"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/etTelefonoContactoEditar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="12dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

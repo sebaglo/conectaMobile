@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -12,24 +13,34 @@ import java.util.ArrayList;
 public class ContactosAdapter extends RecyclerView.Adapter<ContactosAdapter.ContactoViewHolder> {
 
     private ArrayList<String> listaContactos;
+    private OnContactoClickListener listener;
 
     // Constructor
-    public ContactosAdapter(ArrayList<String> listaContactos) {
+    public ContactosAdapter(ArrayList<String> listaContactos, OnContactoClickListener listener) {
         this.listaContactos = listaContactos;
+        this.listener = listener;
     }
 
+    @NonNull
     @Override
-    public ContactoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ContactoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflamos el layout para cada item de la lista
         View itemView = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
         return new ContactoViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(ContactoViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ContactoViewHolder holder, int position) {
         // Asignamos el texto del contacto al TextView
         String contacto = listaContactos.get(position);
         holder.tvContacto.setText(contacto);
+
+        // Configurar clic en cada elemento de la lista
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onContactoClick(position); // Notificar el clic
+            }
+        });
     }
 
     @Override
@@ -48,9 +59,14 @@ public class ContactosAdapter extends RecyclerView.Adapter<ContactosAdapter.Cont
 
         TextView tvContacto;
 
-        public ContactoViewHolder(View itemView) {
+        public ContactoViewHolder(@NonNull View itemView) {
             super(itemView);
             tvContacto = itemView.findViewById(android.R.id.text1);
         }
+    }
+
+    // Interfaz para manejar clics en los contactos
+    public interface OnContactoClickListener {
+        void onContactoClick(int position);
     }
 }
