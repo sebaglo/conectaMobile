@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainContactos extends AppCompatActivity {
+public class agregar extends AppCompatActivity {
 
     private EditText etBarraContacto;
     private RecyclerView rvListaContactos;
@@ -48,9 +48,9 @@ public class MainContactos extends AppCompatActivity {
         btnAgregarContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Crear un Intent para abrir la actividad "agregar"
-                Intent intent = new Intent(MainContactos.this, agregar.class);
-                startActivity(intent); // Lanzar la actividad
+                // Lanzar la actividad AgregarContactoActivity
+                Intent intent = new Intent(agregar.this, MainContactos.class);
+                startActivity(intent);
             }
         });
 
@@ -63,9 +63,9 @@ public class MainContactos extends AppCompatActivity {
                     String contactoEditar = listaContactos.get(0); // Ejemplo de cómo editar el primer contacto
                     listaContactos.set(0, contactoEditar + " (editado)");
                     contactosAdapter.notifyItemChanged(0); // Notificar al adaptador que se ha cambiado un item
-                    Toast.makeText(MainContactos.this, "Contacto editado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(agregar.this, "Contacto editado", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainContactos.this, "No hay contactos para editar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(agregar.this, "No hay contactos para editar", Toast.LENGTH_SHORT).show();
                 }
             }
         });
