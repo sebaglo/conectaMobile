@@ -33,6 +33,11 @@ android {
 }
 
 dependencies {
+
+    implementation ("com.google.firebase:firebase-storage:20.1.0")
+
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")
 

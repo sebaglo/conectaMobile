@@ -1,5 +1,6 @@
 package com.example.conectamobile;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextWatcher;
@@ -20,11 +21,13 @@ public class MainContactos extends AppCompatActivity {
     private EditText etBarraContacto;
     private RecyclerView rvListaContactos;
     private Button btnAgregarContacto, btnEditarContacto;
+    private Button btnPerfil;  // Agregado botón para ver perfil
 
     private ArrayList<String> listaContactos;
     private ContactosAdapter contactosAdapter;
     private int contactoSeleccionado = -1; // Para rastrear el contacto seleccionado
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,7 @@ public class MainContactos extends AppCompatActivity {
         rvListaContactos = findViewById(R.id.rvListaContactos);
         btnAgregarContacto = findViewById(R.id.btnAgregarContacto);
         btnEditarContacto = findViewById(R.id.btneditarcontacto);
+        btnPerfil = findViewById(R.id.btnPerfil);  // Inicialización del botón para ver perfil
 
         // Inicializar la lista de contactos
         listaContactos = new ArrayList<>();
@@ -48,35 +52,29 @@ public class MainContactos extends AppCompatActivity {
         rvListaContactos.setAdapter(contactosAdapter);
 
         // Configurar el botón de agregar contacto
-        btnAgregarContacto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainContactos.this, agregar.class);
-                startActivityForResult(intent, 1); // Lanzar la actividad esperando un resultado
-            }
+        btnAgregarContacto.setOnClickListener(v -> {
+            Intent intent = new Intent(MainContactos.this, agregar.class);
+            startActivityForResult(intent, 1); // Lanzar la actividad esperando un resultado
         });
 
         // Configurar el botón de editar contacto
-        btnEditarContacto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (contactoSeleccionado != -1) {
-                    // Obtener los datos del contacto seleccionado
-                    String[] datosContacto = listaContactos.get(contactoSeleccionado).split(" - ");
-                    String nombre = datosContacto[0];
-                    String correo = datosContacto[1];
-                    String telefono = datosContacto[2];
+        btnEditarContacto.setOnClickListener(v -> {
+            if (contactoSeleccionado != -1) {
+                // Obtener los datos del contacto seleccionado
+                String[] datosContacto = listaContactos.get(contactoSeleccionado).split(" - ");
+                String nombre = datosContacto[0];
+                String correo = datosContacto[1];
+                String telefono = datosContacto[2];
 
-                    // Enviar los datos a la actividad MainEditar
-                    Intent intent = new Intent(MainContactos.this, MainEditar.class);
-                    intent.putExtra("contactoId", "id_placeholder"); // Cambia esto según el ID real en Firebase
-                    intent.putExtra("nombre", nombre);
-                    intent.putExtra("correo", correo);
-                    intent.putExtra("telefono", telefono);
-                    startActivityForResult(intent, 2); // Código de solicitud para editar
-                } else {
-                    Toast.makeText(MainContactos.this, "Selecciona un contacto para editar.", Toast.LENGTH_SHORT).show();
-                }
+                // Enviar los datos a la actividad MainEditar
+                Intent intent = new Intent(MainContactos.this, MainEditar.class);
+                intent.putExtra("contactoId", "id_placeholder"); // Cambia esto según el ID real en Firebase
+                intent.putExtra("nombre", nombre);
+                intent.putExtra("correo", correo);
+                intent.putExtra("telefono", telefono);
+                startActivityForResult(intent, 2); // Código de solicitud para editar
+            } else {
+                Toast.makeText(MainContactos.this, "Selecciona un contacto para editar.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -98,6 +96,12 @@ public class MainContactos extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(android.text.Editable editable) {}
+        });
+
+        // Configurar el botón para ver el perfil
+        btnPerfil.setOnClickListener(v -> {
+            Intent intent = new Intent(MainContactos.this,MainPerfil.class);
+            startActivity(intent);  // Redirige a la actividad del perfil de usuario
         });
     }
 

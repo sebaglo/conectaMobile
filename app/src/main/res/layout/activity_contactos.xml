@@ -15,6 +15,7 @@
         android:inputType="text"
         android:drawablePadding="8dp"
         android:layout_margin="8dp"
+        android:textColor="@color/black"
         android:background="@drawable/barra_busqueda"
         android:layout_alignParentTop="true" />
 
@@ -60,6 +61,23 @@
         android:backgroundTint="@color/black"
         android:drawablePadding="8dp"
         android:text="Editar Contacto"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/rvListaContactos"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="288dp"
+        android:layout_marginBottom="21dp"
+        android:backgroundTint="@color/black"
+        android:drawablePadding="8dp"
+        android:text="Ver Perfil"
         android:textColor="@color/white" />
 
 </RelativeLayout>
