@@ -1,5 +1,6 @@
 package com.example.conectamobile;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -24,6 +25,7 @@ public class MainPerfil extends AppCompatActivity {
     private ImageView ivProfilePicture;
     private Button btnCambiarFoto, btnGuardarPerfil, btnEditarPerfil;
     private EditText etNombreCompleto, etEmail;
+    private Button btnRegresar;
 
     private FirebaseFirestore db;  // Instancia de Firestore
     private FirebaseStorage storage; // Instancia de FirebaseStorage
@@ -31,6 +33,7 @@ public class MainPerfil extends AppCompatActivity {
     private String userId = "usuario_id_placeholder"; // Obtén el ID del usuario desde FirebaseAuth en un caso real
     private static final int IMAGE_PICK_REQUEST = 1; // Código de solicitud para abrir la galería
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,7 @@ public class MainPerfil extends AppCompatActivity {
         btnEditarPerfil = findViewById(R.id.btnEditarPerfilUsuario);
         etNombreCompleto = findViewById(R.id.etNombreCompleto);
         etEmail = findViewById(R.id.etEmail);
+        btnRegresar = (findViewById(R.id.btnRegresar));
 
         // Inicializar Firebase Firestore y Firebase Storage
         db = FirebaseFirestore.getInstance();
@@ -74,6 +78,16 @@ public class MainPerfil extends AppCompatActivity {
             etNombreCompleto.setEnabled(true);
             etEmail.setEnabled(true);
             btnGuardarPerfil.setVisibility(View.VISIBLE);  // Mostrar el botón de guardar
+        });
+
+        // Configurar el botón "Volver"
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainPerfil.this, MainContactos.class);
+                startActivity(intent);
+                finish(); // Opcional: Cierra esta actividad para evitar que se acumule en el stack
+            }
         });
 
         // Cargar los datos del perfil desde Firestore

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     android:padding="16dp">
 
     <!-- Título -->
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Editar Contacto"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp"
@@ -24,7 +26,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Nombre del contacto"
-        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@id/txtTituloEditar"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +41,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Correo del contacto"
-        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@id/etNombreContactoEditar"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +56,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Teléfono del contacto"
-        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:inputType="phone"
         app:layout_constraintTop_toBottomOf="@id/etCorreoContactoEditar"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,4 +79,17 @@
         android:layout_marginTop="16dp"
         android:padding="12dp" />
 
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:backgroundTint="@color/black"
+        android:padding="12dp"
+        android:text="Volver"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etTelefonoContactoEditar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

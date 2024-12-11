@@ -21,6 +21,7 @@ public class agregar extends AppCompatActivity {
 
     private EditText etNombreContactoG, etCorreoContacto, etTelefonoContacto;
     private Button btnGuardarContacto;
+    private Button btnVolver;
     private FirebaseFirestore mFirestore;
 
     @Override
@@ -37,12 +38,23 @@ public class agregar extends AppCompatActivity {
         etCorreoContacto = findViewById(R.id.etCorreoContacto);
         etTelefonoContacto = findViewById(R.id.etTelefonoContacto);
         btnGuardarContacto = findViewById(R.id.btnGuardarContacto);
+        btnVolver = (findViewById(R.id.btnVolverC));
 
         // Configurar botón Guardar
         btnGuardarContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 agregarContacto();
+            }
+        });
+
+        // Configurar el botón "Volver"
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(agregar.this, MainContactos.class);
+                startActivity(intent);
+                finish(); // Opcional: Cierra esta actividad para evitar que se acumule en el stack
             }
         });
     }

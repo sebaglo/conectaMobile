@@ -4,42 +4,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/white">
+    android:background="@drawable/fondo">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
         <TextView
             android:id="@+id/tvLoginTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Inicio de Sesión"
             android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:paddingBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/etLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Correo Electrónico"
-            android:textColor="@color/black"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:inputType="textEmailAddress"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+             />
 
         <EditText
             android:id="@+id/etLoginContraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contraseña"
-            android:textColor="@color/black"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:inputType="textPassword"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+             />
 
         <Button
             android:id="@+id/btnLogin"
@@ -48,11 +56,11 @@
             android:text="Iniciar Sesión"
             android:backgroundTint="@color/black"
             android:textColor="@color/white"
-            android:layout_marginTop="16dp" />
+            android:layout_marginBottom="16dp" />
 
         <TextView
             android:id="@+id/tvGoToRegister"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="¿No tienes una cuenta? Regístrate aquí"
             android:textColor="@color/black"

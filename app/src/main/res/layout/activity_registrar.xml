@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/white">
+    android:background="@drawable/fondo">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:text="Registro de Usuario"
             android:textSize="24sp"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:gravity="center"
             android:paddingBottom="16dp" />
@@ -26,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre Completo"
-            android:textColor="@color/black"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPersonName"
             android:padding="12dp" />
 
@@ -35,7 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Correo Electrónico"
-            android:textColor="@color/black"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textEmailAddress"
             android:padding="12dp" />
 
@@ -44,7 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contraseña"
-            android:textColor="@color/black"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPassword"
             android:padding="12dp" />
 
@@ -53,7 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirmar Contraseña"
-            android:textColor="@color/black"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPassword"
             android:padding="12dp" />
 
@@ -71,7 +76,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="¿Ya tienes una cuenta? Inicia sesión aquí"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_marginTop="8dp" />
 

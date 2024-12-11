@@ -1,5 +1,7 @@
 package com.example.conectamobile;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,9 +22,11 @@ public class MainEditar extends AppCompatActivity {
 
     private EditText etNombreContactoEditar, etCorreoContactoEditar, etTelefonoContactoEditar;
     private Button btnGuardarCambios;
+    private Button btnVolver;
     private FirebaseFirestore mFirestore;
     private String contactoId; // ID del contacto que se está editando
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,7 @@ public class MainEditar extends AppCompatActivity {
         etCorreoContactoEditar = findViewById(R.id.etCorreoContactoEditar);
         etTelefonoContactoEditar = findViewById(R.id.etTelefonoContactoEditar);
         btnGuardarCambios = findViewById(R.id.btnGuardarCambios);
+        btnVolver = (findViewById(R.id.btnVolver));
 
         // Obtener los datos del Intent
         contactoId = getIntent().getStringExtra("contactoId");
@@ -60,6 +65,16 @@ public class MainEditar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 guardarCambios();
+            }
+        });
+
+        // Configurar el botón "Volver"
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainEditar.this, MainContactos.class);
+                startActivity(intent);
+                finish(); // Opcional: Cierra esta actividad para evitar que se acumule en el stack
             }
         });
     }
