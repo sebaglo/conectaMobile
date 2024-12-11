@@ -43,18 +43,32 @@ public class Main_login extends AppCompatActivity {
                 String email = etLoginEmail.getText().toString().trim();
                 String contraseña = etLoginContraseña.getText().toString().trim();
 
+                // Validación de campos vacíos
                 if (email.isEmpty() || contraseña.isEmpty()) {
                     Toast.makeText(Main_login.this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Lógica para autenticar al usuario
-
-                    // Esto puede conectarse a una base de datos o API
-                    Toast.makeText(Main_login.this, "Iniciando sesión con: " + email, Toast.LENGTH_SHORT).show();
-
-                    // Redirigir al usuario a otra actividad después de un inicio de sesión exitoso
-                    Intent intent = new Intent(Main_login.this, MainContactos.class);
-                    startActivity(intent);
+                    return; // Salir de la función si hay campos vacíos
                 }
+
+                // Validación de formato de email
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    Toast.makeText(Main_login.this, "Por favor, ingresa un email válido.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Validación de la contraseña
+                if (contraseña.length() < 6) {
+                    Toast.makeText(Main_login.this, "La contraseña debe tener al menos 6 caracteres.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Lógica para autenticar al usuario (puedes usar Firebase Authentication aquí)
+
+                // Esto puede conectarse a una base de datos o API
+                Toast.makeText(Main_login.this, "Iniciando sesión con: " + email, Toast.LENGTH_SHORT).show();
+
+                // Redirigir al usuario a otra actividad después de un inicio de sesión exitoso
+                Intent intent = new Intent(Main_login.this, MainContactos.class);
+                startActivity(intent);
             }
         });
 
@@ -69,5 +83,3 @@ public class Main_login extends AppCompatActivity {
         });
     }
 }
-
-

@@ -49,6 +49,10 @@ public class Main_registrar extends AppCompatActivity {
                 // Validaciones
                 if (nombre.isEmpty() || email.isEmpty() || contraseña.isEmpty() || confirmarContraseña.isEmpty()) {
                     Toast.makeText(Main_registrar.this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
+                } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    Toast.makeText(Main_registrar.this, "Por favor, ingresa un email válido.", Toast.LENGTH_SHORT).show();
+                } else if (contraseña.length() < 6) {
+                    Toast.makeText(Main_registrar.this, "La contraseña debe tener al menos 6 caracteres.", Toast.LENGTH_SHORT).show();
                 } else if (!contraseña.equals(confirmarContraseña)) {
                     Toast.makeText(Main_registrar.this, "Las contraseñas no coinciden.", Toast.LENGTH_SHORT).show();
                 } else {
