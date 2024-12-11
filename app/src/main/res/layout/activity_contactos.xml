@@ -51,23 +51,6 @@
     <!--Boton editar-->
 
     <Button
-        android:id="@+id/btnCerrarSesion"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="8dp"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="-96dp"
-        android:layout_marginBottom="15dp"
-        android:layout_toStartOf="@+id/btnAgregarContacto"
-        android:layout_toEndOf="@+id/btneditarcontacto"
-        android:backgroundTint="@color/black"
-        android:drawablePadding="8dp"
-        android:text="Cerrar Sesión"
-        android:textColor="@color/white" />
-
-    <Button
         android:id="@+id/btneditarcontacto"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
@@ -98,6 +81,24 @@
         android:backgroundTint="@color/black"
         android:drawablePadding="8dp"
         android:text="Ver Perfil"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rvListaContactos"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="12dp"
+        android:layout_toStartOf="@+id/btnAgregarContacto"
+        android:layout_toEndOf="@+id/btneditarcontacto"
+        android:backgroundTint="@color/black"
+        android:drawablePadding="8dp"
+        android:text="Cerrar Sesión"
         android:textColor="@color/white" />
 
 </RelativeLayout>
