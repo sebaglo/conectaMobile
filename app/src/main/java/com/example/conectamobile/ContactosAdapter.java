@@ -12,11 +12,11 @@ import java.util.ArrayList;
 
 public class ContactosAdapter extends RecyclerView.Adapter<ContactosAdapter.ContactoViewHolder> {
 
-    private ArrayList<String> listaContactos;
+    private ArrayList<Contacto> listaContactos;
     private OnContactoClickListener listener;
 
     // Constructor
-    public ContactosAdapter(ArrayList<String> listaContactos, OnContactoClickListener listener) {
+    public ContactosAdapter(ArrayList<Contacto> listaContactos, OnContactoClickListener listener) {
         this.listaContactos = listaContactos;
         this.listener = listener;
     }
@@ -31,9 +31,9 @@ public class ContactosAdapter extends RecyclerView.Adapter<ContactosAdapter.Cont
 
     @Override
     public void onBindViewHolder(@NonNull ContactoViewHolder holder, int position) {
-        // Asignamos el texto del contacto al TextView
-        String contacto = listaContactos.get(position);
-        holder.tvContacto.setText(contacto);
+        // Asignamos el texto del contacto al TextView usando el método toString()
+        Contacto contacto = listaContactos.get(position);
+        holder.tvContacto.setText(contacto.toString());
 
         // Configurar clic en cada elemento de la lista
         holder.itemView.setOnClickListener(v -> {
@@ -49,7 +49,7 @@ public class ContactosAdapter extends RecyclerView.Adapter<ContactosAdapter.Cont
     }
 
     // Método para actualizar la lista filtrada
-    public void actualizarLista(ArrayList<String> nuevaLista) {
+    public void actualizarLista(ArrayList<Contacto> nuevaLista) {
         listaContactos = nuevaLista;
         notifyDataSetChanged();  // Notificamos al adaptador que la lista ha cambiado
     }
